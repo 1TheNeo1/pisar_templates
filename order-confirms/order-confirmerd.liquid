@@ -1129,14 +1129,11 @@
                                                                                                                 {% assign line_title = line.title %}
                                                                                                              {% endif %}
                                                                                                             
-                                                                                                            {% if  line.variant.metafields.variant["name"] != blank %}
-                                                                                                              {{   line.variant.metafields.variant["name"]  }}
-                                                                                                              {% else %}
-                                                                                                              {% if line.variant.title != 'Default Title' %}
-                                                                                                                {{ line.variant.title }}
-                                                                                                              {% endif %}
-                                                                                                              
-                                                                                                            {% endif %}
+                                                                                                             {% if line.variant.title != 'Default Title' %}
+                                                                                                              {{ line.variant.title | remove: "/ " }}
+                                                                                                             {% else %}
+                                                                                                              {{ line_title }}
+                                                                                                             {% endif %}
                                                                                                           <br />
                                                                                                           {{ line.product.metafields.custom["subtitle"] }}
                                                                                                         </p>
